@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Forever ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #ff758c, #ff7eb3, #fad0c4, #ffd1ff);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+  overflow-x: hidden;
+  color: white;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.card-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SIDE IMAGES */
+.side-img {
+  width: 350px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: floatSoft 4s ease-in-out infinite;
+}
+
+.left-img { left: -300px; }
+.right-img { right: -300px; }
+
+@keyframes floatSoft {
+  0%,100% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-10px); }
+}
+
+/* TOP IMAGE */
+.top-img {
+  width: 200px;
+  position: absolute;
+  top: -60px;
+  animation: floatSoft 4s ease-in-out infinite;
+}
+
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(15px);
+  padding: 50px;
+  border-radius: 30px;
+  max-width: 850px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+}
+
+p {
+  font-size: 1.3rem;
+  line-height: 1.9;
+}
+
+/* BUTTONS */
+.buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+button {
+  padding: 15px 38px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+.no {
+  background: white;
+  color: #ff4d6d;
+}
+
+button:hover {
+  transform: scale(1.15);
+}
+
+/* HEARTS (start only after YES) */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 26px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120vh) scale(1.6); opacity: 0; }
+}
+
+/* POPUP */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: rgba(255,255,255,0.95);
+  color: #ff4d6d;
+  padding: 30px 40px;
+  border-radius: 25px;
+  font-size: 1.4rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  z-index: 100;
+  animation: popIn 0.6s forwards;
+}
+
+@keyframes popIn {
+  to { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes popOut {
+  to { transform: translate(-50%, -50%) scale(0); }
+}
+
+#celebrate { display: none; }
+.glow { text-shadow: 0 0 20px rgba(255,255,255,0.9); }
+</style>
+
+</head>
+
+<body>
+
+<!-- 🎵 LOCAL MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="music/love-song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- INTRO -->
+<section>
+   <div class="card-wrapper">
+    <img src="images/intro.png" class="top-img">
+  <div class="card">
+    <h1>Hey Kumkum ❤️</h1>
+    <p>
+      I tried to put my feelings into words,  
+      but my heart still says more than I ever could 💕  
+      <br><br>
+      Please read this slowly… it’s all for you meri jaan ☺️
+      scroll...
+    </p>
+  </div>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section>
+  <div class="card-wrapper">
+    <img src="images/letter.png" class="side-img left-img">
+    <img src="images/letter.png" class="side-img right-img">
+  <div class="card">
+    <h1>From My Heart 💌</h1>
+    <p>
+      Somewhere between our conversations, tumhari baatein, tumhara mere liye care, your understanding, 
+      and the way you make everything feel lighter…  
+      <br>
+      Kumkum you became my favorite part of every day ❤️  
+      <br><br>
+      You are my comfort, my happiness, my safe place.  
+      And today, I want to choose you — not just for now,  
+      but for every tomorrow 💍
+    </p>
+  </div>
+  </div>
+</section>
+
+<!-- PROPOSAL -->
+<section>
+  <div class="card-wrapper">
+    <img src="images/ask.png" class="side-img left-img">
+    <img src="images/ask.png" class="side-img right-img">
+  <div class="card">
+    <h1 class="glow">Will You Be Mine Forever? 💍</h1>
+    <div class="buttons">
+      <button id="yesBtn" class="yes">YES ❤️</button>
+      <button id="noBtn" class="no">NO 🙈</button>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- CELEBRATION -->
+<section id="celebrate">
+  <div class="card-wrapper">
+    <img src="images/celebrate.png" class="side-img left-img">
+    <img src="images/celebrate.png" class="side-img right-img">
+   <div class="card">
+    <h1 class="glow">SHE SAID YES!!! 😁🎉💖</h1>
+    <p>
+      From this moment on, my heart is yours ❤️  
+      In every smile, every dream, every step ahead…  
+      I choose you. Always.  
+      <br><br>
+      This isn’t just a proposal —  
+      this is the beginning of *our forever* 💍✨
+    </p>
+    <h2>— I Am Yours, Always 💞</h2>
+  </div>
+  </div>
+</section>
+
+<script>
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const celebrate = document.getElementById("celebrate");
+const music = document.getElementById("bgMusic");
+
+let noCount = 0;
+
+
+// /* Floating hearts */
+// setInterval(() => {
+//   const h = document.createElement("div");
+//   h.className = "heart";
+//   h.innerHTML = "❤️";
+//   h.style.left = Math.random() * 100 + "vw";
+//   h.style.animationDuration = Math.random() * 3 + 4 + "s";
+//   document.body.appendChild(h);
+//   setTimeout(() => h.remove(), 7000);
+// }, 300);
+
+let heartInterval;
+
+function startHearts() {
+  if (heartInterval) return; // prevents multiple intervals
+
+  heartInterval = setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7000);
+  }, 250);
+}
+
+
+/* Popup function */
+function showPopup(message) {
+  const popup = document.createElement("div");
+  popup.className = "popup";
+  popup.innerHTML = message;
+  document.body.appendChild(popup);
+
+  setTimeout(() => {
+    popup.style.animation = "popOut 0.8s forwards";
+    setTimeout(() => popup.remove(), 800);
+  }, 2800);
+}
+
+/* NO button logic */
+noBtn.onclick = () => {
+  noCount++;
+
+  if (noCount === 1) {
+    showPopup("Please don’t 🥺💔");
+  } else if (noCount === 2) {
+    showPopup("My heart can’t take this… please say yes 🥹❤️");
+  } else {
+    showPopup("I have no choice now, Because I only want you 😭");
+    noBtn.innerText = "YES ❤️";
+    noBtn.classList.remove("no");
+    noBtn.classList.add("yes");
+    noBtn.onclick = celebrateLove;
+  }
+};
+
+/* Celebration */
+function celebrateLove() {
+  music.play();
+  startHearts(); // ❤️ hearts start here
+  celebrate.style.display = "flex";
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+}
+
+
+/* YES works anytime */
+yesBtn.onclick = celebrateLove;
+</script>
+
+</body>
+</html>
+
+
+<!--
+<div class="card">
+    <h1>Hey Kumkum ❤️</h1>
+    <p>
+      I tried to put my feelings into words,  
+      but my heart still says more than I ever could 💕  
+      <br><br>
+      Please read this slowly… it’s all for you meri jaan ☺️
+      scroll...
+    </p>
+  </div>
+<p>
+      Somewhere between our conversations, tumhari baatein, tumhara mere liye care, your understanding, 
+      and the way you make everything feel lighter…  
+      you became my favorite part of every day ❤️  
+      <br><br>
+      You are my comfort, my happiness, my safe place.  
+      And today, I want to choose you — not just for now,  
+      but for every tomorrow 💍
+    </p>
+
+    <div class="card">
+    <h1 class="glow">SHE SAID YES!!! 🎉💖</h1>
+    <p>
+      From this moment on, my heart is yours ❤️  
+      In every smile, every dream, every step ahead…  
+      I choose you. Always.  
+      <br><br>
+      This isn’t just a proposal —  
+      this is the beginning of *our forever* 💍✨
+    </p>
+    <h2>— I Am Yours, Always 💞</h2>
+  </div>
+-->
